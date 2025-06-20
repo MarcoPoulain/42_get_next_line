@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 16:41:30 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/18 17:07:58 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/06/20 13:22:05 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 		return (1);
 	}
 	bytes_read = read(fd, buffer, 50);
-	while(bytes_read > 0)
+	while (bytes_read > 0)
 	{
 		write(1, buffer, bytes_read);
 		bytes_read = read(fd, buffer, 50);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_1char.c                                       :+:      :+:    :+:   */
+/*   read_failed.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 15:32:28 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/20 13:21:52 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/20 13:38:59 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/20 13:55:53 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,22 @@
 int	main(void)
 {
 	int		fd;
-	ssize_t	bytes_read;
-	char	c;
+	char	buffer[5];
 
 	fd = open("openme.txt", O_RDONLY);
-	if (fd == -1)
+	if (fd < 0)
 	{
 		perror("open failed");
 		return (1);
 	}
-	bytes_read = read(fd, &c, 1);
-	while (bytes_read > 0)
-	{
-		write(1, &c, 1);
-		bytes_read = read(fd, &c, 1);
-	}
-	if (close(fd) == -1)
+	if (close(fd) < 0)
 	{
 		perror("close failed");
+		return (1);
+	}
+	if (read(fd, buffer, 5) < 0)
+	{
+		perror("read failed");
 		return (1);
 	}
 	return (0);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_1char.c                                       :+:      :+:    :+:   */
+/*   read_binary.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 15:32:28 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/20 13:21:52 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/20 13:56:12 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/20 14:34:36 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,27 @@
 int	main(void)
 {
 	int		fd;
+	char	buffer[16];
 	ssize_t	bytes_read;
-	char	c;
+	int		i;
 
-	fd = open("openme.txt", O_RDONLY);
-	if (fd == -1)
+	fd = open("prog", O_RDONLY);
+	if (fd < 0)
 	{
 		perror("open failed");
 		return (1);
 	}
-	bytes_read = read(fd, &c, 1);
-	while (bytes_read > 0)
+	while ((bytes_read = read(fd, buffer, 16)) > 0)
 	{
-		write(1, &c, 1);
-		bytes_read = read(fd, &c, 1);
+		i = 0;
+		while (i < bytes_read)
+		{
+			printf("0x%02x ", (unsigned char)buffer[i]);
+			i++;
+		}
+		printf("\n");
 	}
-	if (close(fd) == -1)
+	if (close(fd) < 0)
 	{
 		perror("close failed");
 		return (1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_1char.c                                       :+:      :+:    :+:   */
+/*   read_32bytes_while.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 15:32:28 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/20 13:21:52 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/20 12:51:41 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/20 13:06:00 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 {
 	int		fd;
 	ssize_t	bytes_read;
-	char	c;
+	char	buffer[32];
 
 	fd = open("openme.txt", O_RDONLY);
 	if (fd == -1)
@@ -26,11 +26,13 @@ int	main(void)
 		perror("open failed");
 		return (1);
 	}
-	bytes_read = read(fd, &c, 1);
+	bytes_read = read(fd, buffer, 32);
+	printf("Read returns: \"%zd\"\n", bytes_read);
 	while (bytes_read > 0)
 	{
-		write(1, &c, 1);
-		bytes_read = read(fd, &c, 1);
+		write(1, buffer, bytes_read);
+		bytes_read = read(fd, buffer, 32);
+		printf("Read returns: \"%zd\"\n", bytes_read);
 	}
 	if (close(fd) == -1)
 	{

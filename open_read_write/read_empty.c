@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_1char.c                                       :+:      :+:    :+:   */
+/*   read_empty.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 15:32:28 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/20 13:21:52 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/20 13:12:41 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/20 13:30:45 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,17 @@ int	main(void)
 {
 	int		fd;
 	ssize_t	bytes_read;
-	char	c;
+	char	buffer[10];
 
-	fd = open("openme.txt", O_RDONLY);
-	if (fd == -1)
+	fd = open("empty.txt", O_RDONLY);
+	if (fd < 0)
 	{
 		perror("open failed");
 		return (1);
 	}
-	bytes_read = read(fd, &c, 1);
-	while (bytes_read > 0)
-	{
-		write(1, &c, 1);
-		bytes_read = read(fd, &c, 1);
-	}
-	if (close(fd) == -1)
+	bytes_read = read(fd, buffer, 10);
+	printf("read returns: \"%zd\"\n", bytes_read);
+	if (close(fd) < 0)
 	{
 		perror("close failed");
 		return (1);
