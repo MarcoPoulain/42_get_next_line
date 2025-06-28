@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_concat.c                                      :+:      :+:    :+:   */
+/*   ft_strdup_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 17:54:22 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/28 12:49:17 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/28 12:17:16 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/28 12:46:21 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
 #include "header.h"
 
-int	main(void)
+char	*ft_strdup_n(const char *src, size_t n)
 {
-	int		fd;
-	size_t	total_len;
-	ssize_t	bytes_read;
-	char	buffer[6];
+	char	*dest;
+	size_t	i;
 
-	fd = open("openme.txt", O_RDONLY);
-	if (fd < 0)
+	dest = malloc((sizeof(char) * n) + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < n)
 	{
-		perror("open failed");
-		return (1);
+		dest[i] = src[i];
+		i++;
 	}
-
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
-*/

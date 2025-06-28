@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_concat.c                                      :+:      :+:    :+:   */
+/*   ft_mini_gnl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 17:54:22 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/28 12:49:17 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/28 16:51:54 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/28 17:52:32 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdlib.h>
-#include <unistd.h>
+
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "header.h"
 
-int	main(void)
+char	*mini_gnl(int fd)
 {
-	int		fd;
-	size_t	total_len;
-	ssize_t	bytes_read;
-	char	buffer[6];
+	static char	*line;
+	char		*tmp;
+	char		buffer[7];
+	ssize_t		bytes_read;
+	size_t		i;
 
-	fd = open("openme.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		perror("open failed");
-		return (1);
-	}
+	read(fd, buffer, 7);
 
-	return (0);
+	return (line);
 }
-*/
