@@ -6,10 +6,10 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 15:00:54 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/28 17:52:42 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:09:28 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -55,4 +55,4 @@ int	main(void)
 		return (1);
 	}
 	return (0);
-}
+}*/

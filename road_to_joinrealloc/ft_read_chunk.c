@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_n.c                                      :+:      :+:    :+:   */
+/*   ft_read_chunk.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/28 12:17:16 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/29 14:56:18 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/29 12:13:55 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/29 12:32:36 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include "header.h"
 
-char	*ft_strdup_n(const char *src, size_t n)
+ssize_t	ft_read_chunk(int fd, char *buffer, size_t bufsize)
 {
-	char	*dest;
-	size_t	i;
+	ssize_t	bytes_loot;
 
-	dest = malloc(sizeof(char) * n);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
+	bytes_loot = read(fd, buffer, bufsize);
+	return (bytes_loot);
 }

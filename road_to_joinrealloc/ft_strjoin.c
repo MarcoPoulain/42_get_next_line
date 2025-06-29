@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:21:57 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/27 17:01:06 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:19:03 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(const char *str1, const char *str2)
 {
 	size_t	i;
 	size_t	j;
-	size_t 	alloc;
+	size_t	alloc;
 	char	*joined;
 
 	alloc = ft_strlen(str1) + ft_strlen(str2);

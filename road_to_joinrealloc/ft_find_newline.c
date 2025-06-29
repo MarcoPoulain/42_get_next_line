@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup_n.c                                      :+:      :+:    :+:   */
+/*   ft_find_newline.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/28 12:17:16 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/29 14:56:18 by kassassi         ###   ########.fr       */
+/*   Created: 2025/06/29 13:15:42 by kassassi          #+#    #+#             */
+/*   Updated: 2025/06/29 14:24:39 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "header.h"
 
-char	*ft_strdup_n(const char *src, size_t n)
+ssize_t	ft_find_newline(const char *buffer, size_t size)
 {
-	char	*dest;
 	size_t	i;
 
-	dest = malloc(sizeof(char) * n);
-	if (!dest)
-		return (NULL);
 	i = 0;
-	while (i < n)
+	while (i < size)
 	{
-		dest[i] = src[i];
+		if (buffer[i] == '\n')
+			return (i);
 		i++;
 	}
-	return (dest);
+	return (-1);
 }

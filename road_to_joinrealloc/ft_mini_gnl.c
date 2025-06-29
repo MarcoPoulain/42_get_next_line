@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:51:54 by kassassi          #+#    #+#             */
-/*   Updated: 2025/06/28 17:52:32 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:22:52 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 #include <stdio.h>
 #include "header.h"
 
-char	*mini_gnl(int fd)
+char	*ft_mini_gnl(int fd)
 {
-	static char	*line;
-	char		*tmp;
-	char		buffer[7];
-	ssize_t		bytes_read;
-	size_t		i;
-
-	read(fd, buffer, 7);
-
-	return (line);
 }
