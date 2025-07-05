@@ -6,10 +6,11 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 15:52:09 by kassassi          #+#    #+#             */
-/*   Updated: 2025/07/05 15:56:11 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/07/05 16:33:12 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*extract_line(char *buffer, char **rest)
 {
+	
 }
