@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:16:00 by kassassi          #+#    #+#             */
-/*   Updated: 2025/07/05 13:30:47 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:42:57 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 
-char	*gnl_read_and_append(int fd, char *stash)
+char	*read_and_cat(int fd, char *stash)
 {
 	char	*buffer;
 	char	*tmp;
@@ -42,7 +42,7 @@ char	*gnl_read_and_append(int fd, char *stash)
 	return (stash);
 }
 
-char	*gnl_extract_line(char **stash)
+char	*extract_line(char **stash)
 {
 	char	*line;
 	char	*rest;
@@ -77,9 +77,9 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = gnl_read_and_append(fd, stash);
+	stash = read_and_cat(fd, stash);
 	if (!stash)
 		return (NULL);
-	line = gnl_extract_line(&stash);
+	line = extract_line(&stash);
 	return (line);
 }

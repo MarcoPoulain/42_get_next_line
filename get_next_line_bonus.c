@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:16:00 by kassassi          #+#    #+#             */
-/*   Updated: 2025/07/06 14:05:56 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/07/11 13:25:25 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "get_next_line_bonus.h"
 
-char	*gnl_read_and_append(int fd, char *stash)
+char	*read_and_cat(int fd, char *stash)
 {
 	char	*buffer;
 	char	*tmp;
@@ -42,7 +42,7 @@ char	*gnl_read_and_append(int fd, char *stash)
 	return (stash);
 }
 
-char	*gnl_extract_line(char **stash)
+char	*extract_line(char **stash)
 {
 	char	*line;
 	char	*rest;
@@ -72,14 +72,14 @@ char	*gnl_extract_line(char **stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash[50];
+	static char	*stash[1024];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash[fd] = gnl_read_and_append(fd, stash[fd]);
+	stash[fd] = read_and_cat(fd, stash[fd]);
 	if (!stash[fd])
 		return (NULL);
-	line = gnl_extract_line(&stash[fd]);
+	line = extract_line(&stash[fd]);
 	return (line);
 }
