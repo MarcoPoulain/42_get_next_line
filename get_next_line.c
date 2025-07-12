@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:16:00 by kassassi          #+#    #+#             */
-/*   Updated: 2025/07/11 12:42:57 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/07/12 12:26:29 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 
-char	*read_and_cat(int fd, char *stash)
+static char	*read_and_cat(int fd, char *stash)
 {
 	char	*buffer;
 	char	*tmp;
@@ -42,7 +42,7 @@ char	*read_and_cat(int fd, char *stash)
 	return (stash);
 }
 
-char	*extract_line(char **stash)
+static char	*extract_line(char **stash)
 {
 	char	*line;
 	char	*rest;
